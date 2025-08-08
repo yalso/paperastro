@@ -1,0 +1,27 @@
+---
+import '../styles/global.css'; // <-- 确保这一行存在
+
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+        <!-- 添加依赖项的 CDN 脚本 -->
+        <script src="https://cdn.jsdelivr.net/npm/immer@9.0.21/dist/immer.umd.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
